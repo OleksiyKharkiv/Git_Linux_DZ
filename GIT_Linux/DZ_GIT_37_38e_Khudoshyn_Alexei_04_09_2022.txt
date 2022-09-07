@@ -1,0 +1,77 @@
+для полной очистки индекса
+	git reset HEAD
+
+для просмотра разницы между раб.каталогом и посл. комvитом
+	git diff HEAD          сравнить индекс с рабочей директорией
+	git diff --cached  чтобы посмотреть различия между последним коммитом
+	
+
+для создания новой ветки и одновременного переключения в на нее
+	git checkout -b
+
+
+для сравнения веток между собой
+	git diff [branch1]...[branch2]
+
+для загрузки ветки develop на удаленный репозиторий (GITHUB)
+	git push GITHUB develop
+
+для удаления локальной ветки
+	git branch -d удалить ветвь
+
+	git branch -D точно-преточно удалить ветвь :)))
+
+для слияния веток
+	git merge <название ветки>, где <название ветки> — название ветки, которая будет объединена с принимающей.
+для открытия (просмотра) файла по состоянию на какой-то коммит
+	git show <version>:<file> version - хэш коммита, file - имя файла 
+
+Схема репов:
+ - Lections (мат.лекций и т.д.)
+ - Homeworks
+   -- Linux (реп)
+   -- BE (реп)
+   -- FE (реп)
+   	  -- index.html
+      -- sep_5
+      -- sep_4
+         -- index.html
+         -- style.css
+   -- QA 
+
+git reset --hard HEAD~ (удалить последний коммит)
+
+Commit early. Commit offten
+
+git branch -v посмотреть ветви с подробностями
+
+git feature -m  переименовать ветвь
+
+git push origin --delete feature/login (удалить ветку на GH)
+
+(1) Локальной
+  git branch -m новое_название_текущей
+
+(2) Дистанционной на GH
+  git push origin --delete старое_название
+  git push -u orogin новое_название
+
+(1) разницу между раб/каталог и посл/коммит
+git diff HEAD
+
+(2) разницу между индексом и посл/коммит
+git diff --cached (--staged)
+
+(3) разницу между раб/каталогом и индексом
+git diff
+
+git revert hash_commit
+git rm origin
+
+git branch -m main
+git branch -m main
+git push -u origin main
+(в настройках на GH изменил ветку по умолчанию)
+git push origin --delete master
+
+
