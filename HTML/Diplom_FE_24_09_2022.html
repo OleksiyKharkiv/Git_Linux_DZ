@@ -1,0 +1,1157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;900&display=swap");
+
+        html,
+        body,
+        .wrapper {
+            height: 100%;
+            width: 100%;
+            margin: 0%;
+        }
+
+        body {
+            font-family: "Roboto", sans-serif;
+            margin: 0%;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        .wrapper {
+            background: #e5e7e9;
+            padding: 0%;
+            display: grid;
+            grid-template-columns: 250px 400px auto 70px;
+            grid-template-rows: 1fr;
+            grid-template-areas:
+                "aside inbox chat addmenu"
+            ;
+
+
+        }
+
+
+        aside {
+            position: fixed;
+            width: 250px;
+            border-radius: 20px 0 0 20px;
+            background: #f3f5f7;
+            grid-area: aside;
+            display: grid;
+            grid-template-rows: 2fr 5fr 3fr 1fr;
+            grid-template-areas:
+                "figure"
+                "nav"
+                "menu2"
+                "button2"
+            ;
+            justify-items: center;
+        }
+
+        figure {
+            grid-area: figure;
+            align-items: center;
+            justify-items: flex-start;
+            display: grid;
+            grid-template-columns: repeat(2 1fr);
+            grid-template-areas:
+                "button__logo button__text";
+            width: 200px;
+            margin-bottom: 80px;
+        }
+
+        .button__logo {
+            grid-area: button__logo;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .button__text {
+            grid-area: button__text;
+            margin-right: 100px;
+
+        }
+
+        h4 {
+            color: #a3a6af;
+            padding-left: 25px;
+            margin: 0px;
+        }
+
+        li {
+            list-style-type: none;
+            /* Убираем маркеры */
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        nav {
+            grid-area: nav;
+            display: grid;
+            grid-template-rows: repeat(6 1fr);
+            padding: 1rem 0 1rem 0;
+            width: 100%;
+        }
+
+        .nav__list {
+            display: grid;
+            grid-template-rows: repeat(6 1fr);
+            padding-left: 25px;
+        }
+
+        .nav__link {
+            text-decoration: none;
+            font-size: 1.1rem;
+            color: #989898;
+        }
+
+        .nav__link--active {
+            color: #000;
+            width: 100%;
+
+        }
+
+        .nav__item {
+            border-left: 2px solid transparent;
+            padding: 0 0 0 0;
+            text-decoration: none;
+
+        }
+
+        .nav__item--active {
+            border-color: #000;
+            text-decoration: none
+        }
+
+        .nav__item:not(:last-child) {
+            margin-bottom: 1rem;
+            color: #989898;
+        }
+
+        .nav__text {
+            text-decoration: none;
+            marker: none;
+            font-size: 1rem;
+        }
+
+        .icon {
+            grid-area: icon;
+            font-size: 1.25rem;
+            color: #989898;
+        }
+
+
+
+        .menu2 {
+            grid-area: menu2;
+            display: grid;
+            grid-template-rows: repeat(4 1fr);
+            padding: 0 0 1rem 0;
+            width: 100%;
+        }
+
+        .nav__list2 {
+            display: grid;
+            padding: 0%;
+
+        }
+
+        .nav__link2 {
+            display: grid;
+            grid-template-columns: (1fr 4fr 1fr);
+            text-decoration: none;
+            font-size: 1.1rem;
+            color: #989898;
+            width: 100%;
+            grid-template-areas:
+                "icon nav__item2 button3";
+            /* padding-left: 10px; */
+
+        }
+
+        .nav__link--active2 {
+            color: #000;
+            width: 100%;
+            padding-left: 10px;
+        }
+
+
+        .nav__item2 {
+            grid-area: nav__it;
+            border-left: 2px solid transparent;
+            padding: 0 0 0 0;
+
+        }
+
+        .nav__item--active2 {
+            border-color: #000;
+        }
+
+        .nav__item2:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+
+        .nav__text2 {
+            grid-area: nav__text2;
+            text-decoration: none;
+            marker: none;
+            font-size: 1rem;
+        }
+
+        .icon {
+            font-size: 1.25rem;
+            align-items: baseline;
+            color: #a3a6af;
+        }
+
+
+        .button2 {
+            grid-area: button2;
+
+        }
+
+        .button2__text {
+            padding: 1rem 1rem;
+            background: #f3f5f7;
+            color: rgb(8, 8, 8);
+            border: 2px solid #e5e7e9;
+            border-radius: 8px;
+            font-size: 0, 3rem;
+            cursor: pointer;
+        }
+
+        .button3 {
+            grid-area: button3;
+            font-size: 12px;
+            border-radius: 20%;
+            border: 2px solid #e5e7e9;
+            height: 30px;
+            width: 30px;
+            margin-left: 40px;
+            cursor: pointer;
+        }
+
+        .button4 {
+            font-size: 12px;
+            border-radius: 40%;
+            border: 2px solid #f5ac95;
+            margin-left: 15px;
+            margin-right: 5px;
+            color: transparent;
+            cursor: pointer;
+        }
+
+        .button5 {
+            font-size: 12px;
+            border-radius: 40%;
+            border: 2px solid #5b8acd;
+            margin-left: 15px;
+            margin-right: 5px;
+            color: transparent;
+            cursor: pointer;
+        }
+
+        .button6 {
+            font-size: 12px;
+            border-radius: 40%;
+            border: 2px solid #5835b3;
+            margin-left: 15px;
+            margin-right: 5px;
+            color: transparent;
+            cursor: pointer;
+        }
+
+        .button7 {
+            font-size: 12px;
+            border-radius: 40%;
+            border: 2px solid #91bba7;
+            margin-left: 15px;
+            margin-right: 5px;
+            color: transparent;
+            cursor: pointer;
+        }
+
+
+        .button8 {
+            padding: 10px 10px;
+            width: 50%;
+            background: #f3f5f7;
+            color: rgb(8, 8, 8);
+            border: 2px solid #e5e7e9;
+            border-radius: 8px;
+            font-size: 0, 3rem;
+            cursor: pointer;
+        }
+
+        .button8Disable {
+            padding: 10px 10px;
+            width: 50%;
+            background: #f3f5f7;
+            color: rgb(8, 8, 8);
+            border: 2px solid #e5e7e9;
+            border-radius: 8px;
+            font-size: 0, 3rem;
+            cursor: pointer;
+        }
+
+
+        .inbox {
+            /* position: fixed; */
+            background: #ffffff;
+            grid-area: inbox;
+            display: grid;
+            grid-template-rows: 90px 90px auto;
+            grid-template-areas:
+                "title"
+                "containerBtn"
+                "contact"
+            ;
+            justify-items: center;
+            overflow-y: scroll;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        .title {
+            grid-area: title;
+            display: grid;
+            grid-template-columns: repeat(2 1fr);
+            grid-template-areas:
+                "h2 button9";
+            justify-items: flex-end;
+            align-items: center;
+            width: 300px;
+        }
+
+        h2 {
+            grid-area: h2;
+            color: #545658;
+            text-align: left;
+            margin-right: 200px;
+        }
+
+        .button9 {
+            grid-area: button9;
+            font-size: 12px;
+            border-radius: 20%;
+            border: 2px solid #e5e7e9;
+            height: 30px;
+            width: 30px;
+            cursor: pointer;
+        }
+
+        .containerBtn {
+            grid-area: containerBtn;
+            display: grid;
+            grid-template-columns: repeat(2 1fr);
+            grid-template-areas:
+                "a b";
+            padding: 0;
+            width: 300px;
+            height: 60%;
+            background: #f3f5f7;
+            color: rgb(8, 8, 8);
+            border: 2px solid #e5e7e9;
+            border-radius: 8px;
+            font-size: 0, 3rem;
+            cursor: pointer;
+
+        }
+
+        .contact {
+            padding-right: 0rem;
+        }
+
+        .button8 {
+            grid-area: a;
+            padding: 5px;
+            width: 100%;
+            background: #ffffff;
+            color: rgb(8, 8, 8);
+            border: 2px solid #e5e7e9;
+            border-radius: 8px;
+            font-size: 0, 3rem;
+            cursor: pointer;
+        }
+
+        .button8Disable {
+            grid-area: b;
+            padding: 5px;
+            width: 100%;
+            background: #f3f5f7;
+            color: rgb(8, 8, 8);
+            border: none;
+            border-radius: 8px;
+            font-size: 0, 3rem;
+            cursor: pointer;
+        }
+
+        .item {
+            background: #f3f5f7;
+            width: 300px;
+            height: 80px;
+            display: grid;
+            grid-template-columns: 2fr 6fr 2fr;
+            padding: 2px;
+            margin: 5px;
+            gap: 5px;
+            border-radius: 15px;
+            grid-template-areas:
+                "image name indicator";
+            justify-items: center;
+            align-items: center;
+        }
+
+        .item__online {
+            background: #ffffff;
+            width: 300px;
+            height: 80px;
+            display: grid;
+            grid-template-columns: 2fr 6fr 2fr;
+            padding: 2px;
+            margin: 5px;
+            gap: 5px;
+            border-radius: 15px;
+            grid-template-areas:
+                "image name indicator";
+            justify-items: center;
+            align-items: center;
+            margin-left: 50px;
+        }
+
+        .name__name {
+            /* background: lightblue; */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: medium;
+            color: #2c2e2f;
+        }
+
+        .name__role {
+            font-size: small;
+            color: #c1c6ca;
+        }
+
+        .name__sms {
+            font-size: small;
+            color: #2c2e2f;
+            height: 16px;
+            width: 120px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .image,
+        .name,
+        .indicator {
+            display: grid;
+            align-items: center;
+        }
+
+        .image {
+            grid-area: image;
+            height: auto;
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            margin: 0%;
+        }
+
+        img {
+            object-fit: cover;
+
+        }
+
+        .online {
+            background: lightgreen;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            border: 3px solid white;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+
+        }
+
+        .name {
+            grid-area: name;
+            height: auto;
+            width: auto;
+            font-size: small;
+        }
+
+        .indicator {
+            grid-area: indicator;
+            text-align: center;
+            background: #4b69da;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            /* border: 3px solid white; */
+            justify-content: center;
+            /* position: absolute;
+            right: 0;
+            bottom: 0; */
+        }
+
+
+        .chat {
+            background-color: #fdfdfd;
+            grid-area: chat;
+            border-left: 1px solid #e5e7e9;
+            border-right: 1px solid #e5e7e9;
+            display: grid;
+            background: #ffffff;
+            grid-template-rows: 90px auto 90px;
+            grid-template-areas:
+                "chatActive"
+                "chatMess"
+                "writeMess"
+            ;
+            justify-items: center;
+            align-items: top;
+        }
+
+        .chatActive {
+            display: grid;
+            grid-area: chatActive;
+            border-bottom: 1px solid #e5e7e9;
+            grid-template-columns: 4fr 4fr 30px 30px;
+            width: 100%;
+            height: 100%;
+            align-items: center;
+            gap: 10px;
+
+        }
+
+        .input2 {
+            display: grid;
+            grid-template-columns: 6fr 1fr;
+            border: 1px solid #e5e7e9;
+            border-radius: 3%;
+            height: 35%;
+            border-bottom: 1px solid #e5e7e9;
+            align-items: center;
+            background: #f3f5f7;
+
+        }
+
+        .chatMess {
+            grid-area: chatMess;
+            border-bottom: 1px solid #e5e7e9;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, #f3f5f7, #ffffff);
+            padding: 50px;
+        }
+
+        .writeMess {
+            grid-area: writeMess;
+            border-top: 1px solid #e5e7e9;
+            width: 100%;
+            height: 100%;
+        }
+
+        .input {
+            border: none;
+            width: 100%;
+            height: 100%;
+            padding-left: 30px;
+            padding-top: 3%;
+            background: #f3f5f7;
+
+        }
+
+        input {
+            width: 80%;
+            border: none;
+        }
+
+        .addmenu {
+            border-radius: 0px 20px 20px 0px;
+            background: #ffffff;
+            grid-area: addmenu;
+            display: grid;
+            grid-template-rows: 1fr 8fr 1fr;
+            grid-template-areas:
+                "buttonTop"
+                "buttonMedium"
+                "buttonBottom"
+            ;
+            justify-items: center;
+
+        }
+
+        .buttonTop {
+            grid-area: buttonTop;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .buttonMedium {
+            grid-area: buttonMedium;
+            margin-top: 580px;
+            justify-items: center;
+        }
+
+        .buttonBottom {
+            grid-area: buttonBottom;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .button10 {
+            /* grid-area: button10; */
+            font-size: 12px;
+            border-radius: 20%;
+            border: 2px solid #e5e7e9;
+            /* height: 30px;
+            width: 30px; */
+            cursor: pointer;
+            align-items: center;
+            padding-right: 5px;
+        }
+
+        span {
+            border: none;
+            width: 100%;
+            height: 100%;
+            justify-items: center;
+            align-items: center;
+
+        }
+
+        @media (max-width: 768px) {
+            aside {
+                transform: translateX(-250px);
+                transition: all 0.5s ease-out;
+            }
+
+            .inbox {
+                transform: translateX(-650px);
+                transition: all 0.5s ease-out;
+            }
+
+            .addmenu {
+                transform: translateX(+70px);
+                transition: all 0.5s ease-out;
+            }
+
+            aside--open {
+                transform: none;
+            }
+
+            .inbox--open {
+                transform: none;
+            }
+
+            .addmenu--open {
+                transform: none;
+            }
+
+            .chat {
+                margin: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <aside>
+            <figure>
+                <!-- <div class="conteiner_logo">
+                    <img src="https://img.icons8.com/fluency/48/000000/orthogonal-view.png" />
+                    <button class="button__logo">Shark</button>
+
+                </div> -->
+                <a class="button__logo">
+                    <img src="https://img.icons8.com/fluency/48/000000/orthogonal-view.png" />
+                </a>
+                <div class="button__text">
+                    <b> Shark</b>
+                </div>
+            </figure>
+            <nav>
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a class="nav__link nav__link--active" href="">
+                            <span class="icon">
+                                <img src="https://img.icons8.com/material-outlined/24/000000/sheets.png" />
+                            </span>
+                            <span class="nav__text">
+                                Dashboard
+                            </span>
+                        </a>
+
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="">
+                            <span class="icon">
+                                <img src="https://img.icons8.com/ios-glyphs/30/000000/futures.png" />
+                            </span>
+                            <span class="nav__text">
+                                Statistic
+                            </span>
+                        </a>
+
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="">
+                            <span class="icon">
+                                <img src="https://img.icons8.com/ios/25/000000/speech-bubble--v1.png" />
+                            </span>
+                            <span class="nav__text">
+                                Support
+                            </span>
+                        </a>
+
+                    </li>
+                    <li class="nav__item nav__item--active">
+                        <a class="nav__link" href="">
+                            <span class="icon">
+                                <img src="https://img.icons8.com/ios-filled/25/000000/inbox.png" />
+                            </span>
+                            <span class="nav__text">
+                                Inbox
+                            </span>
+                        </a>
+
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="">
+                            <span class="icon">
+                                <img src="https://img.icons8.com/windows/25/000000/rocket.png" />
+                            </span>
+                            <span class="nav__text">
+                                Goals
+                            </span>
+                        </a>
+
+                    </li>
+                    <li class="nav__item">
+                        <a class="nav__link" href="">
+                            <span class="icon">
+                                <img src="https://img.icons8.com/glyph-neue/25/000000/link.png" />
+                            </span>
+                            <span class="nav__text">
+                                Links
+                            </span>
+                        </a>
+
+                    </li>
+                </ul>
+            </nav>
+            <nav class="menu2">
+                <h4>Projects</h4>
+                <ul class="nav__list2">
+                    <li class="nav__item nav__item--active2">
+                        <a class="nav__link nav__link--active2" href="">
+                            <span class="icon">
+                                <button class="button4">
+                                    1
+                                </button>
+                            </span>
+                            <span class="nav__text2">
+                                Callipso
+                            </span>
+                            <button class="button3">
+                                +4
+                            </button>
+                        </a>
+
+                    </li>
+                    <li class="nav__item nav__item--active2">
+                        <a class="nav__link nav__link--active2" href="">
+                            <span class="icon">
+                                <button class="button5">
+                                    1
+                                </button>
+                            </span>
+                            <span class="nav__text2">
+                                BWS bank
+                            </span>
+                            <button class="button3">
+                                +5
+                            </button>
+                        </a>
+
+                    </li>
+                    <li class="nav__item nav__item--active2">
+                        <a class="nav__link nav__link--active2" href="">
+                            <span class="icon">
+                                <button class="button6">
+                                    1
+                                </button>
+                            </span>
+                            <span class="nav__text2">
+                                Unicorn App
+                            </span>
+                            <button class="button3">
+                                +1
+                            </button>
+                        </a>
+
+                    </li>
+                    <li class="nav__item nav__item--active2">
+                        <a class="nav__link nav__link--active2" href="">
+                            <span class="icon">
+                                <button class="button7">
+                                    1
+                                </button>
+                            </span>
+                            <span class="nav__text2">
+                                Salt
+                            </span>
+                            <button class="button3">
+                                +3
+                            </button>
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </nav>
+            <a>
+                <div class="button2__text">Show more
+                </div>
+
+            </a>
+        </aside>
+        <div class="inbox">
+            <div class="title">
+                <h2>
+                    Inbox
+                </h2>
+                <button class="button9"> +
+
+                </button>
+            </div>
+            <div class="containerBtn">
+
+                <button class="button8">General
+                    <button class="button8Disable">Total
+            </div>
+            <div class="item">
+                <div class="image">
+                    <figure class="avatar">
+                        <img src="https://img.icons8.com/color/48/000000/user-male-skin-type-3.png" />
+                        <div class="online"></div>
+                    </figure>
+                </div>
+                <div class="name">
+                    <div class="name__name">
+                        <b> Michael.B</b>
+                    </div>
+                    <div class="name__role">
+                        Project manager
+                    </div>
+                    <div class="name__sms">
+                        Sent you the file
+                    </div>
+                </div>
+                <div class="indicator">
+                    2
+                </div>
+            </div>
+            <div class="item">
+                <div class="image">
+                    <figure class="avatar">
+                        <img src="https://img.icons8.com/color/48/000000/user-female-skin-type-3.png" />
+                        <div class="online"></div>
+                    </figure>
+                </div>
+                <div class="name">
+                    <div class="name__name">
+                        <b> Katie.W</b>
+                    </div>
+                    <div class="name__role">
+                        Middle designer
+                    </div>
+                    <div class="name__sms">
+                        See you tommorow...
+                    </div>
+                </div>
+                <div class="indicator">
+                    2
+                </div>
+            </div>
+            <div class="item">
+                <div class="image">
+                    <figure class="avatar">
+                        <img src="https://img.icons8.com/color/48/000000/user-male-skin-type-5.png" />
+                        <!-- <div class="online"></div> -->
+                    </figure>
+                </div>
+                <div class="name">
+                    <div class="name__name">
+                        <b> Arnold.J</b>
+                    </div>
+                    <div class="name__role">
+                        UI designer
+                    </div>
+                    <div class="name__sms">
+                        Hi! I checked the layout
+                    </div>
+                </div>
+                <!-- <div class="indicator">
+                    2
+                </div> -->
+            </div>
+            <div class="item">
+                <div class="image">
+                    <figure class="avatar">
+                        <img src="https://img.icons8.com/color/48/000000/user-female-skin-type-4.png" />
+                        <!-- <div class="online"></div> -->
+                    </figure>
+                </div>
+                <div class="name">
+                    <div class="name__name">
+                        <b> Fannie.K</b>
+                    </div>
+                    <div class="name__role">
+                        HR manager
+                    </div>
+                    <div class="name__sms">
+                        Okay!
+                    </div>
+                </div>
+                <!-- <div class="indicator">
+                    2
+                </div> -->
+            </div>
+            <div class="item">
+                <div class="image">
+                    <figure class="avatar">
+                        <img src="https://via.placeholder.com/80" alt="">
+                        <!-- <div class="online"></div> -->
+                    </figure>
+                </div>
+                <div class="name">
+                    <div class="name__name">
+                        <b> Ivan Ivanov</b>
+                    </div>
+                    <div class="name__role">
+                        Manager
+                    </div>
+                    <div class="name__sms">
+                        Hello!
+                    </div>
+                </div>
+                <!-- <div class="indicator">
+                    2
+                </div> -->
+            </div>
+            <div class="item">
+                <div class="image">
+                    <figure class="avatar">
+                        <img src="https://via.placeholder.com/80" alt="">
+                        <!-- <div class="online"></div> -->
+                    </figure>
+                </div>
+                <div class="name">
+                    <div class="name__name">
+                        <b> Ivan Ivanov</b>
+                    </div>
+                    <div class="name__role">
+                        Manager
+                    </div>
+                    <div class="name__sms">
+                        Hello!
+                    </div>
+                </div>
+                <!-- <div class="indicator">
+                    2
+                </div> -->
+            </div>
+            <div class="item">
+                <div class="image">
+                    <figure class="avatar">
+                        <img src="https://via.placeholder.com/80" alt="">
+                        <!-- <div class="online"></div> -->
+                    </figure>
+                </div>
+                <div class="name">
+                    <div class="name__name">
+                        <b> Ivan Ivanov</b>
+                    </div>
+                    <div class="name__role">
+                        Manager
+                    </div>
+                    <div class="name__sms">
+                        Hello!
+                    </div>
+                </div>
+                <!-- <div class="indicator">
+                    2
+                </div> -->
+            </div>
+            <div class="item">
+                <div class="image">
+                    <figure class="avatar">
+                        <img src="https://via.placeholder.com/80" alt="">
+                    
+                    </figure> 
+                </div>
+                <div class="name">
+                    <div class="name__name">
+                        <b> Ivan Ivanov</b>
+                    </div>
+                    <div class="name__role">
+                        Manager
+                    </div>
+                    <div class="name__sms">
+                        Hello!
+                    </div>
+                </div>
+                <!-- <div class="indicator">
+                    2
+                </div> -->
+            </div>
+            <div class="item">
+                <div class="image">
+                    <figure class="avatar">
+                        <img src="https://via.placeholder.com/80" alt="">
+                        <!-- <div class="online"></div> -->
+                    </figure>
+                </div>
+                <div class="name">
+                    <div class="name__name">
+                        <b> Ivan Ivanov</b>
+                    </div>
+                    <div class="name__role">
+                        Manager
+                    </div>
+                    <div class="name__sms">
+                        Hello!
+                    </div>
+                </div>
+                <!-- <div class="indicator">
+                    2
+                </div> -->
+            </div> -->
+
+
+        </div>
+
+        <div class="chat">
+            <section class="chatActive">
+                <div class="item__online">
+                    <div class="image">
+                        <figure class="avatar">
+                            <img src="https://img.icons8.com/color/48/000000/user-male-skin-type-3.png" />
+                            <div class="online"></div>
+                        </figure>
+                    </div>
+                    <div class="name">
+                        <div class="name__name">
+                            <b> Michael.B</b>
+                        </div>
+                        <div class="name__role">
+                            Online
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="input2">
+                    <input type="text" placeholder="Search..." />
+                    <button10>
+                        <img src="https://img.icons8.com/ios-glyphs/20/000000/search--v1.png" />
+                    </button10>
+                </div>
+                <div class="button10">
+                    <img  src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/25/000000/external-mic-personal-computer-tanah-basah-basic-outline-tanah-basah.png" />
+                </div>
+                <div class="button10">
+                    <img src="https://img.icons8.com/material-outlined/24/000000/webcam.png"/>
+                </div>
+            </section>
+            <div class="chatMess">
+                <time onclick="toggleMenu()">
+                    July 29, Monday
+                </time>
+                <p class="burger" onclick="toggleMenu()">
+                   ................................................... Hello!
+                </p>
+            </div>
+            <div class="input">
+                <input type="text" placeholder="Write a message..." />
+                <button>
+                    <img src="https://img.icons8.com/ios/15/000000/picture.png" />
+                </button>
+                <button>
+                    <img
+                        src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/15/000000/external-mic-personal-computer-tanah-basah-basic-outline-tanah-basah.png" />
+                </button>
+                <button>
+                    <img src="https://img.icons8.com/small/14/000000/filled-sent.png" />
+                </button>
+
+
+            </div>
+        </div>
+        <div class="addmenu">
+            <div class="buttonTop">
+                <button class="button10">
+                    <img src="https://img.icons8.com/metro/20/000000/more.png" />
+                </button>
+            </div>
+            <div class="buttonMedium">
+                <button class="button10">
+                    <span>
+                        <img src="https://img.icons8.com/material-outlined/25/000000/box-important--v1.png" />
+                    </span>
+                </button>
+                <p> </p>
+                <button class="button10">
+                    <img
+                        src="https://img.icons8.com/external-anggara-basic-outline-anggara-putra/25/000000/external-mute-social-media-interface-anggara-basic-outline-anggara-putra.png" />
+                </button>
+            </div>
+            <div class="buttonBottom">
+                <button class="button10">
+                    <img
+                        src="https://img.icons8.com/external-tanah-basah-basic-outline-tanah-basah/25/000000/external-trash-essentials-tanah-basah-basic-outline-tanah-basah-3.png" />
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var sidebar = document.querySelector('.sidebar');
+
+            sidebar.classList.toggle('sidebar--open');
+        }
+
+    </script>
+
+</body>
+
+</html>
